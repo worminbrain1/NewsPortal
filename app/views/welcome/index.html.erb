@@ -1,0 +1,19 @@
+
+
+
+<%- if user_signed_in? && current_user.admin? %>
+ <%= link_to 'Добавить пост', new_post_path %>
+<% end %>
+
+В столбик идут посты с новостями (Posts)
+<br>
+<br>
+1 Post
+<br>
+2 Post
+<br>
+3 Post
+<br>
+<br>
+У постов должны быть лайки и комментарии от Users
+<br>

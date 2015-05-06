@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
+
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body>
+       <p class='alert'>
+       </p>
+       <p class="notice">
+       </p>
+    <div class="row">
+      <div class="large-12 columns">
+        <div class="nav-bar right">
+          <ul class="button-group">
+            <li>
+              <%- if user_signed_in? %>
+                <%= link_to 'Выход', destroy_user_session_path, :method => :delete %>
+              <% else %>
+                <%= render partial: 'layouts/sign_in_form' %>
+              <% end %>
+            </li>
+          </ul>
+        </div>
+        <h1>Название <small>сайта</small></h1>
+
+          <%= link_to 'Главная', root_path %>
+          &nbsp;&nbsp;&nbsp;&nbsp;
+
+          <%= link_to 'События', events_path %>
+          &nbsp;&nbsp;&nbsp;&nbsp;
+
+         	<%= link_to 'Контакты', welcome_contacts_path %> 
+          &nbsp;&nbsp;&nbsp;&nbsp;
+
+         	Еще ссылки
+        <hr/>
+      </div>
+    </div>
+            
+     
+    <div class="row">
+      <div class="small-9 columns" role="content">
+        <%= yield %>
+      </div>
+          
+      <aside class="small-3 columns">
+     
+        <h5>Последние события</h5>
+          <ul class="side-nav">
+            <li><a href="#">последнее событие</a></li>
+            <li><a href="#">предпоследнее событие</a></li>
+            <li><a href="#">и т д</a></li>
+            <li><a href="#">еще событие</a></li>
+            <li><a href="#">уже старое событие</a></li>
+          </ul>
+     
+      </aside>
+    </div>
+     
+            
+    <footer class="row">
+      <div class="large-12 columns">
+        <hr/>
+          <div class="row">
+            <div class="small-6 columns">
+              <p></p>
+            </div>
+            <div class="small-6 columns">
+              <ul class="inline-list center">
+                <li><a href="#">не знаю</a></li>
+                <li><a href="#">пока</a></li>
+                <li><a href="#">что</a></li>
+                <li><a href="#">здесь</a></li>
+              </ul>
+            </div>
+          </div>
+      </div>
+    </footer>
+    
+
+  </body>
+</html>
