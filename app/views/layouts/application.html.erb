@@ -56,11 +56,11 @@
      
         <h5>Последние события</h5>
           <ul class="side-nav">
-            <li><a href="#">последнее событие</a></li>
-            <li><a href="#">предпоследнее событие</a></li>
-            <li><a href="#">и т д</a></li>
-            <li><a href="#">еще событие</a></li>
-            <li><a href="#">уже старое событие</a></li>
+            <%- Event.order('start_date DESC').limit(5).each do |event| %>
+              <li>
+                <%= link_to event.title, event %>
+              </li>
+            <%- end %>
           </ul>
      
       </aside>
@@ -76,10 +76,10 @@
             </div>
             <div class="small-6 columns">
               <ul class="inline-list center">
-                <li><a href="#">не знаю</a></li>
-                <li><a href="#">пока</a></li>
-                <li><a href="#">что</a></li>
-                <li><a href="#">здесь</a></li>
+                <li><a href="#">ссылки</a></li>
+                <li><a href="#">на сторонние</a></li>
+                <li><a href="#">сайты</a></li>
+                <li><a href="#">партнеры</a></li>
               </ul>
             </div>
           </div>
