@@ -51,3 +51,5 @@ end
 gem 'foundation-rails'
 
 gem 'will_paginate'
+
+gem 'pg'
